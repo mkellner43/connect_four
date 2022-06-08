@@ -79,8 +79,13 @@ describe Game do
         game.player_turn
       end
 
+      before do
+        current_player = game.instance_variable_get(:@current_player)
+        current_player.name = 'Matt'
+      end
+
       it 'displays player_selection message 4 times' do
-        player_selection_message = 'Please choose a number between 1 and 7.'
+        player_selection_message = 'Matt please choose a number between 1 and 7.'
         expect(game).to receive(:puts).with(player_selection_message).exactly(4).times
         game.player_turn
       end

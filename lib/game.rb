@@ -46,7 +46,7 @@ class Game
 
   def player_turn
     loop do
-      puts text(:player_selection)
+      puts text(:player_selection, @current_player.name)
       selection = valid?(gets.chomp)
       return selection if selection && @board.row_check(selection)
 
